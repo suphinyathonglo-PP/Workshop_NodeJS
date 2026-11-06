@@ -18,8 +18,8 @@ const userSchema = new Schema(
     },
     role: { 
         type: String,
-        enum: ["admin", "shop"],
-        default: "shop" },
+        enum: ["admin", "user"],
+        default: "user" },
     isApproved: {
       type: Boolean,
       default: false,

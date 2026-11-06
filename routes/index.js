@@ -7,7 +7,7 @@ var jwt = require('jsonwebtoken');
 
 router.post('/register', async (req, res, next) => {
   try {
-    const { name, email, password } = req.body
+    const { name, email, password, role, isApproved } = req.body
 
     if (!name || !email || !password) {
       return res.status(400).send({ status: 400, message: "ข้อมูลไม่ครบ", data: null })
@@ -23,8 +23,8 @@ router.post('/register', async (req, res, next) => {
       name,
       email,
       password: hash,
-      role: 'shop',
-      isApproved: false
+      ...(role !== undefined && { role }),
+      ...(isApproved !== undefined && { isApproved })
     }).save()
 
     res.status(201).send({

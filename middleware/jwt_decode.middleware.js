@@ -16,7 +16,7 @@ module.exports = function(req, res, next) {
     if (
       typeof decoded !== 'object' ||
       typeof decoded.sub !== 'string' ||
-      !['admin', 'shop'].includes(decoded.role)
+      !['admin', 'user'].includes(decoded.role)
     ) {
       return res.status(401).send({ status: 401, message: 'Invalid token.', data: null });
     }

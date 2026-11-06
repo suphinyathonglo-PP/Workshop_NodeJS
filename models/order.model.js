@@ -12,10 +12,6 @@ const orderSchema = new Schema({
     required: true,
     min: 1
   },
-  // unitPrice: {
-  //   type: Number,
-  //   required: true
-  // },
   totalPrice: {
     type: Number,
     required: true
